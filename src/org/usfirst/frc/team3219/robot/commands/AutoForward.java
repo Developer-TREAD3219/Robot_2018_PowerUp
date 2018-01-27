@@ -4,6 +4,7 @@
 package org.usfirst.frc.team3219.robot.commands;
 
 import org.usfirst.frc.team3219.robot.Robot;
+import org.usfirst.frc.team3219.robot.subsystems.Sensors;
 
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -27,11 +28,14 @@ public class AutoForward extends Command {
 		Robot.driveTrain.setSafety(false);
 		Robot.driveTrain.resetDistance();
 		this.setTimeout(5);
-		Robot.driveTrain.drive(AUTO_POWER_SETTING, AUTO_POWER_SETTING);
+		Robot.driveTrain.autoDrive(AUTO_POWER_SETTING, 0);
+		Sensors.zeroHeading();
 	}
 
 	protected void execute() {
-		Robot.driveTrain.drive(AUTO_POWER_SETTING, AUTO_POWER_SETTING);
+		double angle = Sensors.heading();
+		double turnRate = angle / 5.0;
+		Robot.driveTrain.autoDrive(AUTO_POWER_SETTING, turnRate);
 	}
 
 	// Make this return true when this Command no longer needs to run execute()

@@ -15,6 +15,7 @@ import org.usfirst.frc.team3219.robot.commands.AutoForward;
 import org.usfirst.frc.team3219.robot.commands.AutonomousCommand;
 import org.usfirst.frc.team3219.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team3219.robot.subsystems.PowerManagment;
+import org.usfirst.frc.team3219.robot.subsystems.Sensors;
 
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -83,6 +84,7 @@ public class Robot extends TimedRobot {
     @Override
     public void disabledPeriodic() {
         Scheduler.getInstance().run();
+        Sensors.heading();
     }
 
     @Override
@@ -100,6 +102,7 @@ public class Robot extends TimedRobot {
     @Override
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
+        Sensors.heading();
     }
 
     @Override

@@ -115,4 +115,8 @@ public void init() {
 	public void drive(double leftPower, double rightPower) {
 		this.differentialDrive1.tankDrive(leftPower, rightPower);
 	}
+	
+	public void autoDrive(double power, double turnrate) {
+		this.differentialDrive1.arcadeDrive(power, turnrate);
+	}
 }
