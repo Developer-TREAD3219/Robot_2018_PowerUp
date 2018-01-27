@@ -12,7 +12,7 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class AutoForward extends Command {
-	private static final double AUTO_POWER_SETTING = 0.8;
+	private static final double AUTO_POWER_SETTING = 0.6;
 	private double distance;
 
 	/**
