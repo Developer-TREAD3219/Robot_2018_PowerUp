@@ -44,7 +44,11 @@ public class StickDrive extends Command {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-    	Robot.driveTrain.drive(Robot.oi.leftJoystick.getY(), Robot.oi.rightJoystick.getY());
+    	double left = Robot.oi.leftJoystick.getY();
+    	double right = Robot.oi.rightJoystick.getY();
+    	double throttle = Robot.oi.leftJoystick.getRawAxis(2);
+    	double adjustedThrottle = -(((-throttle + 1) / 4) + 0.5);
+    	Robot.driveTrain.drive(left * adjustedThrottle, right * adjustedThrottle);
     }
 
     // Make this return true when this Command no longer needs to run execute()

@@ -1,0 +1,39 @@
+Tasks for programmers
+
+1) Fill out this file!
+
+Auto:
+1)	interpret the startup string
+2.1) multiple programs for different starting positions
+2.2) 
+3)	auto routines as nescessary for going from place to place
+4)	get past the line!
+5)	figure out a way to determine if it's in contact with the switch
+6)	
+
+Teleop:
+Subsystems:
+1) DriveTrain
+need shifting
+power management
+	turning on and off motors
+	throttle (X)
+
+2) Power management
+power consumption
+
+3) shooter
+2 talon motor controllers
+1 to 2 solenoids
+
+4) Pneumatics
+PCM
+
+5) Climber?
+1 cim motor?
+
+Testing:
+Abuse robot while it's driving forward
+
+1) Setup Shuffleboard or SmartDashboard Interface
+

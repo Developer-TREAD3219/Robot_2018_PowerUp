@@ -52,6 +52,11 @@ public class PowerManagment extends Subsystem {
 
     }
 
+	public void init() {
+		// TODO Auto-generated method stub
+		
+	}
+
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 

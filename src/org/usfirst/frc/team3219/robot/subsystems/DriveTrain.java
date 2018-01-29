@@ -62,7 +62,6 @@ public class DriveTrain extends Subsystem {
 
 	public double leftDistance() {
 		return leftEncoder.getDistance();
-
 	}
 
 	public double rightDistance() {
@@ -97,6 +96,7 @@ public void init() {
 		differentialDrive1.setSafetyEnabled(safety);
 	}
 	
+	@Override
 	public void periodic() {
 		// Put code here to be run every loop
 
