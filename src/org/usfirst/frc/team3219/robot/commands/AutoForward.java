@@ -42,7 +42,7 @@ public class AutoForward extends Command {
 	@Override
 	protected boolean isFinished() {
 		boolean timedOut = this.isTimedOut();
-		double d = Robot.driveTrain.averageDistance();
+		double d = Robot.driveTrain.robotCenterDistance();
 		return timedOut || (d >= this.distance);
 	}
 

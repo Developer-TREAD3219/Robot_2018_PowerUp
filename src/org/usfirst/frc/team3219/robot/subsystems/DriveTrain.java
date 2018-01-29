@@ -10,7 +10,6 @@
 
 package org.usfirst.frc.team3219.robot.subsystems;
 
-import org.usfirst.frc.team3219.robot.Robot;
 import org.usfirst.frc.team3219.robot.RobotMap;
 import org.usfirst.frc.team3219.robot.commands.StickDrive;
 
@@ -43,7 +42,7 @@ public class DriveTrain extends Subsystem {
 	private final WPI_TalonSRX frontRight = RobotMap.driveTrainFrontRight;
 	private final WPI_TalonSRX backRight = RobotMap.driveTrainBackRight;
 	private final SpeedControllerGroup rightDrive = RobotMap.driveTrainRightDrive;
-	private final DifferentialDrive differentialDrive1 = RobotMap.driveTrainDifferentialDrive1;
+	private final DifferentialDrive differentialDrive1 = RobotMap.driveTrainDifferentialDrive;
 	private final Encoder leftEncoder = RobotMap.leftEncoder;
 	private final Encoder rightEncoder = RobotMap.rightEncoder;
 
@@ -70,9 +69,7 @@ public class DriveTrain extends Subsystem {
 		return rightEncoder.getDistance();
 	}
 	
-	public double averageDistance() {
-		double ld = this.leftDistance();
-		double rd = this.rightDistance();
+	public double robotCenterDistance() {
 		return (((leftDistance() + rightDistance()) / 2)*CORRECTION_FACTOR);
 	}
 	
