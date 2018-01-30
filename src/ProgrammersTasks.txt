@@ -11,7 +11,7 @@ Auto:
 5)	figure out a way to determine if it's in contact with the switch
 6)	
 
-Teleop:
+     Teleop:
 Subsystems:
 1) DriveTrain
 need shifting
@@ -22,7 +22,7 @@ power management
 2) Power management
 power consumption
 
-3) shooter
+3) Shooter
 2 talon motor controllers
 1 to 2 solenoids
 
@@ -32,7 +32,7 @@ PCM
 5) Climber?
 1 cim motor?
 
-Testing:
+    Testing:
 Abuse robot while it's driving forward
 
 1) Setup Shuffleboard or SmartDashboard Interface
