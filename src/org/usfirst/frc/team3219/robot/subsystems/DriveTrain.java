@@ -29,6 +29,9 @@ import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 public class DriveTrain extends Subsystem {
 	private static final int CURRENT_LIMIT_TIMEOUT = 100;
 	private static final int MINIMUM_CURRENT_LIMIT = 5;
+	public static final boolean HIGH_GEAR = true;
+	public static final boolean LOW_GEAR = false;
+	
 
 	public static final double CORRECTION_FACTOR = (12.2/10)*(10.276/10);
 	public static final double TICKS_PER_REVOLUTION = 360.0;
@@ -112,6 +115,14 @@ public void init() {
 
 	// Put methods for controlling this subsystem
 	// here. Call these from Commands.
+	
+	public void shift(boolean input) {
+		if(input == HIGH_GEAR) {
+			RobotMap.DriveShifter.set(HIGH_GEAR);
+		} else {
+			RobotMap.DriveShifter.set(LOW_GEAR);
+		}
+	}
 
 	public void drive(double leftPower, double rightPower) {
 		this.differentialDrive1.tankDrive(leftPower, rightPower);
