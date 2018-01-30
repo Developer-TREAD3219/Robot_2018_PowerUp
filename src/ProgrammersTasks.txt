@@ -35,5 +35,6 @@ PCM
     Testing:
 Abuse robot while it's driving forward
 
+0) validate if Shuffleboard is a reasonable option
 1) Setup Shuffleboard or SmartDashboard Interface
 

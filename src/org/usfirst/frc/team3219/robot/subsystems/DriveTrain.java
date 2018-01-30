@@ -27,6 +27,8 @@ import edu.wpi.first.wpilibj.drive.DifferentialDrive;
  *
  */
 public class DriveTrain extends Subsystem {
+	private static final int CURRENT_LIMIT_TIMEOUT = 100;
+	private static final int MINIMUM_CURRENT_LIMIT = 5;
 
 	public static final double CORRECTION_FACTOR = (12.2/10)*(10.276/10);
 	public static final double TICKS_PER_REVOLUTION = 360.0;
@@ -87,6 +89,8 @@ public void init() {
 	
 	leftDrive.setInverted(false);
 	rightDrive.setInverted(false);
+	this.backLeft.configContinuousCurrentLimit(MINIMUM_CURRENT_LIMIT, CURRENT_LIMIT_TIMEOUT);
+	this.backRight.configContinuousCurrentLimit(MINIMUM_CURRENT_LIMIT, CURRENT_LIMIT_TIMEOUT);
 
 	differentialDrive1.setSafetyEnabled(true);
     differentialDrive1.setExpiration(0.1);
