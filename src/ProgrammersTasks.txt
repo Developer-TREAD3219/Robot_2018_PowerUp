@@ -14,7 +14,6 @@ Auto:
      Teleop:
 Subsystems:
 1) DriveTrain
-need shifting
 power management
 	turning on and off motors
 	throttle (X)
@@ -37,4 +36,4 @@ Abuse robot while it's driving forward
 
 0) validate if Shuffleboard is a reasonable option
 1) Setup Shuffleboard or SmartDashboard Interface
-
+?) maybe use this code for getting voltage values? DriverStation.getInstance().getBatteryVoltage() and put that value to the SmartDashboard.
