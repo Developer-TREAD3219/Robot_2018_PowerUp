@@ -117,6 +117,10 @@ public class Robot extends TimedRobot {
 		setSideOwnership(gameData);
 		String start = startPositionChooser.getSelected();
 		SmartDashboard.putString("Chosen Start", start);
+		SmartDashboard.putString("Switch Side", Robot.allianceSwitch ? "Left" : "Right");
+		SmartDashboard.putString("Scale Side", Robot.scale ? "Left" : "Right");
+		SmartDashboard.putString("Opposing Switch Side", Robot.opposingSwitch ? "Left" : "Right");
+		
 	}
 
 	static void setSideOwnership(String gameData) {
