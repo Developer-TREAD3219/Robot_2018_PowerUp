@@ -17,7 +17,6 @@ import org.usfirst.frc.team3219.robot.subsystems.PowerManagment;
 import org.usfirst.frc.team3219.robot.subsystems.Sensors;
 import org.usfirst.frc.team3219.robot.subsystems.Shooter;
 
-import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
