@@ -13,6 +13,12 @@ public class AutoManager extends Command {
 	private enum StartPosition {
 		left, center, right
 	};
+	
+	private enum Strategy {
+		line,
+		line_switch,
+		line_scale
+	};
 
 	@Override
 	protected void initialize() {
@@ -28,33 +34,33 @@ public class AutoManager extends Command {
 
 		switch (startPosition) {
 		case left:
-			if (strategy == "AutoLine") {
+			if (strategy.equalsIgnoreCase("AutoLine")) {
 				Robot.autoForward.start();
-			} else if (strategy == "AutoLine & Switch") {
+			} else if (strategy.equalsIgnoreCase("AutoLine & Switch")) {
 				if (Robot.allianceSwitch == RIGHT_SIDE) {
 					Robot.autoForward.start();
 				} else if (Robot.allianceSwitch == LEFT_SIDE) {
 					Robot.autoForward.start();
 				}
-			} else if (strategy == "AutoLine & Scale") {
+			} else if (strategy.equalsIgnoreCase("AutoLine & Scale")) {
 				if (Robot.scale == RIGHT_SIDE) {
 
 				} else if (Robot.scale == LEFT_SIDE) {
 
 				}
-			}
+			} 
 			break;
 
 		case center:
-			if (strategy == "AutoLine") {
+			if (strategy.equalsIgnoreCase("AutoLine")) {
 
-			} else if (strategy == "AutoLine & Switch") {
+			} else if (strategy.equalsIgnoreCase("Autoline & Switch")) {
 				if (Robot.allianceSwitch == RIGHT_SIDE) {
 
 				} else if (Robot.allianceSwitch == LEFT_SIDE) {
 
 				}
-			} else if (strategy == "AutoLine & Scale") {
+			} else if (strategy.equalsIgnoreCase("AutoLine & Scale")) {
 				if (Robot.scale == RIGHT_SIDE) {
 
 				} else if (Robot.scale == LEFT_SIDE) {
@@ -64,15 +70,15 @@ public class AutoManager extends Command {
 			break;
 
 		case right:
-			if (strategy == "AutoLine") {
+			if (strategy.equalsIgnoreCase("AutoLine")) {
 				Robot.autoForward.start();
-			} else if (strategy == "AutoLine & Switch") {
+			} else if (strategy.equalsIgnoreCase("AutoLine & Switch")) {
 				if (Robot.allianceSwitch == RIGHT_SIDE) {
 					Robot.autoForward.start();
 				} else if (Robot.allianceSwitch == LEFT_SIDE) {
 					Robot.autoForward.start();
 				}
-			} else if (strategy == "AutoLine & Scale") {
+			} else if (strategy.equalsIgnoreCase("AutoLine & Scale")) {
 				if (Robot.scale == RIGHT_SIDE) {
 
 				} else if (Robot.scale == LEFT_SIDE) {
