@@ -25,8 +25,11 @@ public class ShooterInfeed extends Command {
 	}
 
 	protected void initialize() {
-		Robot.shooter.startInfeed();
+		if (!Robot.shooter.hitlimit()) {
+			Robot.shooter.startInfeed();
+		}
 		this.setTimeout(1);
+
 	}
 
 	protected void end() {
