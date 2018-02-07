@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class AutoForward extends Command {
 	private static final double AUTO_POWER_SETTING = 0.6;
+	private double power = AUTO_POWER_SETTING;
 	private double distance;
 
 	/**
@@ -22,6 +23,11 @@ public class AutoForward extends Command {
 
 	public AutoForward(double distance) {
 		this.distance = distance;
+	}
+
+	public AutoForward(double p, double d) {
+		this.power = p;
+		this.distance = d;
 	}
 
 	protected void initialize() {

@@ -22,6 +22,7 @@ public class AutoManager extends Command {
 		rightSelector = new AutoCommandSelector();
 		leftSelector.setDefaultCommand(new AutoForward(Robot.DISTANCE_TO_AUTOLINE));
 		rightSelector.setDefaultCommand(new AutoForward(Robot.DISTANCE_TO_AUTOLINE));
+		centerSelector.setDefaultCommand(new AutoCenter());
 		// centerSelector.setSpecificCommand(new AutonomousCommand(), Robot.Strategy.line, LEFT_SIDE, LEFT_SIDE);
 	}
 
