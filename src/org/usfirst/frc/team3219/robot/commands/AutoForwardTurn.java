@@ -23,10 +23,11 @@ public class AutoForwardTurn extends Command {
 		finalAngle = angle;
 	}
 
-	protected void initialize () {
+	protected void initialize() {
 		Robot.driveTrain.autoDrive(this.forwardSpeed, this.turnRate);
 		this.setTimeout(4);
 	}
+
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -34,15 +35,18 @@ public class AutoForwardTurn extends Command {
 	 */
 	@Override
 	protected boolean isFinished() {
-		double angle = Math.abs( Sensors.heading());
-		return this.isTimedOut() || (angle >= this.finalAngle );
+		double angle = Sensors.heading();
+		boolean isLeft = turnRate > 0;
+		boolean farEnoughLeft = angle <= finalAngle;
+		boolean farEnoughRight = angle >= finalAngle;
+		return this.isTimedOut() || (isLeft ? farEnoughLeft : farEnoughRight);
 	}
-	
-	protected void execute () {
+
+	protected void execute() {
 		Robot.driveTrain.autoDrive(this.forwardSpeed, this.turnRate);
 	}
 
-	protected void end () {
+	protected void end() {
 		Robot.driveTrain.stop();
 	}
 }
