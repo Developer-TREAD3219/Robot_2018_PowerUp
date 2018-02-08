@@ -26,6 +26,7 @@ public class AutoForwardTurn extends Command {
 	protected void initialize() {
 		Robot.driveTrain.autoDrive(this.forwardSpeed, this.turnRate);
 		this.setTimeout(4);
+		System.out.println("AutoForwardTurn(" + forwardSpeed + ", " + turnRate + ", " + finalAngle + ")");
 	}
 
 	/*
@@ -39,6 +40,7 @@ public class AutoForwardTurn extends Command {
 		boolean isLeft = turnRate > 0;
 		boolean farEnoughLeft = angle <= finalAngle;
 		boolean farEnoughRight = angle >= finalAngle;
+
 		return this.isTimedOut() || (isLeft ? farEnoughLeft : farEnoughRight);
 	}
 

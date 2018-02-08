@@ -37,6 +37,7 @@ public class AutoForward extends Command {
 		this.setTimeout(5);
 		Robot.driveTrain.autoDrive(AUTO_POWER_SETTING, 0);
 		heading = Sensors.heading();
+		System.out.println("AutoForward("+power+", "+ distance +")");
 	}
 
 	protected void execute() {
