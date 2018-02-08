@@ -3,6 +3,7 @@ package org.usfirst.frc.team3219.robot.commands;
 import org.usfirst.frc.team3219.robot.Robot;
 import org.usfirst.frc.team3219.robot.Robot.StartPosition;
 import org.usfirst.frc.team3219.robot.Robot.Strategy;
+import org.usfirst.frc.team3219.robot.commands.AutoCommandSelector.Side;
 
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.command.Command;
@@ -23,9 +24,9 @@ public class AutoManager extends Command {
 		leftSelector.setDefaultCommand(new AutoForward(Robot.DISTANCE_TO_AUTOLINE));
 		rightSelector.setDefaultCommand(new AutoForward(Robot.DISTANCE_TO_AUTOLINE));
 		centerSelector.setDefaultCommand(new AutoCenter());
-		// centerSelector.setSpecificCommand(new AutonomousCommand(), Robot.Strategy.line, LEFT_SIDE, LEFT_SIDE);
-		leftSelector.setSpecificCommand(new AutoLineAndShoot(), Robot.Strategy.line_switch, LEFT_SIDE, LEFT_SIDE);
-		leftSelector.setSpecificCommand(new AutoLineAndShoot(), Robot.Strategy.line_switch, LEFT_SIDE, RIGHT_SIDE);
+		// centerSelector.setSpecificCommand(new AutonomousCommand(), Robot.Strategy.line, Side.leftside, Side.rightSide);
+		
+		leftSelector.setSpecificCommand(new AutoLineAndShoot(), Robot.Strategy.line_switch, Side.leftside, Side.dont_care);
 	}
 
 	@Override
@@ -38,7 +39,7 @@ public class AutoManager extends Command {
 		Strategy strategy = Robot.strategyChooser.getSelected();
 		StartPosition startPosition = Robot.startPositionChooser.getSelected();
 		String gameData = DriverStation.getInstance().getGameSpecificMessage();
-		Robot.autoManager.setSideOwnership(gameData);
+		this.setSideOwnership(gameData);
 		Command startCommand = null;
 
 		switch (startPosition) {
