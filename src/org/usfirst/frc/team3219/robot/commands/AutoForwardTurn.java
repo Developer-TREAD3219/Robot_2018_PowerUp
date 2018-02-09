@@ -36,7 +36,7 @@ public class AutoForwardTurn extends Command {
 	 */
 	@Override
 	protected boolean isFinished() {
-		double angle = Sensors.heading();
+		double angle = Robot.sensors.heading();
 		boolean isLeft = turnRate > 0;
 		boolean farEnoughLeft = angle <= finalAngle;
 		boolean farEnoughRight = angle >= finalAngle;

@@ -3,9 +3,12 @@
  */
 package org.usfirst.frc.team3219.robot.subsystems;
 
+import org.usfirst.frc.team3219.robot.Robot;
+
 import com.kauailabs.navx.frc.AHRS;
 
 import edu.wpi.first.wpilibj.SPI;
+import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
@@ -14,16 +17,32 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 
 
-public class Sensors {
-	private static AHRS navX = new AHRS(SPI.Port.kMXP);
+public class Sensors extends Subsystem {
+	private AHRS navX;
 	
-	public static double heading() {
+	public Sensors () {
+		navX  = new AHRS(SPI.Port.kMXP);
+	}
+	
+	@Override
+	protected void initDefaultCommand() {
+	}
+	
+	@Override
+	public void periodic() {
+		SmartDashboard.putNumber("Yaw", heading());
+	}
+
+	public void init() {
+		this.zeroHeading();
+	}
+	
+	public double heading() {
 		double head1 = navX.getYaw();
-		SmartDashboard.putNumber("getYaw", head1);
 		return head1;
 	}
 	
-	public static void zeroHeading() {
+	public void zeroHeading() {
 		navX.reset();
-	}
+	}	
 }

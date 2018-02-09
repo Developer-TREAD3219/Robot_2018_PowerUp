@@ -2,6 +2,7 @@
  * 
  */
 package org.usfirst.frc.team3219.robot.commands;
+import org.usfirst.frc.team3219.robot.Robot;
 import org.usfirst.frc.team3219.robot.subsystems.Sensors;
 
 import edu.wpi.first.wpilibj.command.Command;
@@ -20,7 +21,6 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class AutoLineAndShoot extends CommandGroup {
 	public AutoLineAndShoot() {
 		
-		Sensors.zeroHeading();
 		Command cmd1 = new AutoForward(0.8, 180);
 		Command cmd2 = new AutoForwardTurn(0.5, -1.0, 90.0);
 		Command cmd3 = new AutoForward(0.4, 24.0);

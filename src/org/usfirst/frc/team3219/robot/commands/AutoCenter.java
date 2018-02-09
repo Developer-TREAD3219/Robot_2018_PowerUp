@@ -22,7 +22,6 @@ public class AutoCenter extends CommandGroup {
 	private static final double FORWARD_POWER = 0.5;
 
 	public AutoCenter() {
-		Sensors.zeroHeading();
 		Command cmd1 = new AutoForwardTurn(FORWARD_POWER, TURN_RATE, INTERMEDIATE_ANGLE);
 		Command cmd2 = new AutoForward(FORWARD_POWER, DISTANCE_ONE * INCHES_PER_FOOT);
 		Command cmd3 = new AutoForwardTurn(FORWARD_POWER, -TURN_RATE, FINAL_ANGLE);

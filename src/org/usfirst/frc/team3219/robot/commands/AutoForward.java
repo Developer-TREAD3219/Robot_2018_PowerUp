@@ -36,12 +36,12 @@ public class AutoForward extends Command {
 		Robot.driveTrain.resetDistance();
 		this.setTimeout(5);
 		Robot.driveTrain.autoDrive(AUTO_POWER_SETTING, 0);
-		heading = Sensors.heading();
+		heading = Robot.sensors.heading();
 		System.out.println("AutoForward("+power+", "+ distance +")");
 	}
 
 	protected void execute() {
-		double angle = Sensors.heading() - this.heading;
+		double angle = Robot.sensors.heading() - this.heading;
 		double turnRate = angle / 10.0;
 		Robot.driveTrain.autoDrive(AUTO_POWER_SETTING, turnRate);
 	}

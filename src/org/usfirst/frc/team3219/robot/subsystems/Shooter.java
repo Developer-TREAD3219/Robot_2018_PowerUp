@@ -18,49 +18,44 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  *
  */
 public class Shooter extends Subsystem {
-	private static final double INFEED_MOTORPOWER = -.5;
+	private static final double INFEED_MOTORPOWER = -0.5;
 	private WPI_TalonSRX leftMotor = RobotMap.leftShooterMotor;
 	private WPI_TalonSRX rightMotor = RobotMap.rightShooterMotor;
 	private DoubleSolenoid liftsolenoid = RobotMap.liftsolenoid;
 	private DigitalInput limitswitch = RobotMap.limitswitch;
-	private boolean startedinfeed = false;
+
+	public Shooter() {
+	}
+
+	public void init() {
+		liftsolenoid.set(Value.kForward);
+		leftMotor.setInverted(false);
+		rightMotor.setInverted(true);
+
+		SmartDashboard.putBoolean("shooterposition", false);
+		SmartDashboard.putBoolean("shootermotors", false);
+	}
 
 	@Override
 	protected void initDefaultCommand() {
-		// TODO Auto-generated method stub
-
 	}
 
-	// Pnumatics
+	@Override
+	public void periodic() {
+	}
 
 	// Shooter motors
 	public void startInfeed() {
 		leftMotor.set(INFEED_MOTORPOWER);
 		rightMotor.set(INFEED_MOTORPOWER);
-		startedinfeed = true;
 		SmartDashboard.putBoolean("shootermotors", true);
 	}
 
 	public void setPower(double input) {
 		leftMotor.set(input);
 		rightMotor.set(input);
-		startedinfeed = false;
 		SmartDashboard.putBoolean("shootermotors", true);
 
-	}
-
-	public boolean hitlimit() {
-		return startedinfeed && limitswitch.get();
-	}
-
-	public void raise(boolean up) {
-		SmartDashboard.putBoolean("shooterposition", up);
-		if (up) {
-			liftsolenoid.set(Value.kForward);
-
-		} else {
-			liftsolenoid.set(Value.kReverse);
-		}
 	}
 
 	public void stop() {
@@ -70,13 +65,19 @@ public class Shooter extends Subsystem {
 		System.out.println("stopped shooter motors");
 	}
 
-	public void init() {
-		liftsolenoid.set(Value.kOff);
-		SmartDashboard.putBoolean("shooterposition", false);
-		SmartDashboard.putBoolean("shootermotors", false);
+	public boolean hitlimit() {
+		return limitswitch.get();
 	}
 
-	@Override
-	public void periodic() {
+	// Pneumatics
+
+	public void raise(boolean up) {
+		SmartDashboard.putBoolean("shooterposition", up);
+		if (up) {
+			liftsolenoid.set(Value.kForward);
+
+		} else {
+			liftsolenoid.set(Value.kReverse);
+		}
 	}
 }
