@@ -31,6 +31,7 @@ public class AutoManager extends Command {
 				Side.leftside, Side.dont_care);
 		rightSelector.setSpecificCommand(new AutoLineAndShoot(!Robot.LEFT_SIDE), Robot.Strategy.line_switch,
 				Side.rightside, Side.dont_care);
+		centerSelector.setSpecificCommand(new AutoCenterAndShoot(), Strategy.line_switch, Side.dont_care, Side.dont_care);
 	}
 
 	@Override
