@@ -16,7 +16,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class AutoCenter extends CommandGroup {
 	private static final double DISTANCE_TWO = 5.0;
-	private static final double DISTANCE_ONE = 3.5;
+	private static final double DISTANCE_ONE = 5.0;
 	private static final int INCHES_PER_FOOT = 12;
 	private static final double FINAL_ANGLE = 0.0;
 	private static final double INTERMEDIATE_ANGLE = 30.0;
@@ -34,7 +34,7 @@ public class AutoCenter extends CommandGroup {
 		Command cmd1 = new AutoForwardTurn(FORWARD_POWER, turnLeftRight * TURN_RATE, turnLeftRight *INTERMEDIATE_ANGLE);
 		Command cmd2 = new AutoForward(FORWARD_POWER, DISTANCE_ONE * INCHES_PER_FOOT);
 		Command cmd3 = new AutoForwardTurn(FORWARD_POWER, -turnLeftRight * TURN_RATE, turnLeftRight * FINAL_ANGLE);
-		Command cmd4 = new AutoForward(FORWARD_POWER, DISTANCE_TWO * INCHES_PER_FOOT);
+		Command cmd4 = new AutoBonk();
 
 		this.addSequential(cmd1);
 		this.addSequential(cmd2);
