@@ -3,10 +3,12 @@
  */
 package org.usfirst.frc.team3219.robot.commands;
 
+import org.usfirst.frc.team3219.robot.Robot;
 import org.usfirst.frc.team3219.robot.subsystems.Sensors;
 
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.CommandGroup;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * @author Tread Developer
@@ -22,9 +24,16 @@ public class AutoCenter extends CommandGroup {
 	private static final double FORWARD_POWER = 0.5;
 
 	public AutoCenter() {
-		Command cmd1 = new AutoForwardTurn(FORWARD_POWER, TURN_RATE, INTERMEDIATE_ANGLE);
+		double turnLeftRight = 1.0;
+		SmartDashboard.putBoolean("autocenter", Robot.allianceSwitch);
+		if (Robot.allianceSwitch == Robot.LEFT_SIDE) {
+			turnLeftRight = -1.0;
+			
+		}
+		
+		Command cmd1 = new AutoForwardTurn(FORWARD_POWER, turnLeftRight * TURN_RATE, turnLeftRight *INTERMEDIATE_ANGLE);
 		Command cmd2 = new AutoForward(FORWARD_POWER, DISTANCE_ONE * INCHES_PER_FOOT);
-		Command cmd3 = new AutoForwardTurn(FORWARD_POWER, -TURN_RATE, FINAL_ANGLE);
+		Command cmd3 = new AutoForwardTurn(FORWARD_POWER, -turnLeftRight * TURN_RATE, turnLeftRight * FINAL_ANGLE);
 		Command cmd4 = new AutoForward(FORWARD_POWER, DISTANCE_TWO * INCHES_PER_FOOT);
 
 		this.addSequential(cmd1);
