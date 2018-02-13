@@ -17,6 +17,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 
 public class Sensors extends Subsystem {
+	private static final int FINAL_PITCH_ANGLE = 85;
 	private static final double kCollisionThreshold_DeltaG = 0.5f;
 	private AHRS navX;
 	private double last_world_linear_accel_x = 0;
@@ -65,4 +66,13 @@ public class Sensors extends Subsystem {
 		SmartDashboard.putBoolean("CollisionDetected", collisionDetected);
 		return collisionDetected;
 	}
+	
+	public boolean climbed() {
+		return Math.abs(this.navX.getPitch()) >= FINAL_PITCH_ANGLE;
+		
+		
+	}
+	
+	
 }
+

@@ -12,6 +12,7 @@ package org.usfirst.frc.team3219.robot;
 
 import org.usfirst.frc.team3219.robot.commands.AutoForward;
 import org.usfirst.frc.team3219.robot.commands.AutoManager;
+import org.usfirst.frc.team3219.robot.subsystems.Climber;
 import org.usfirst.frc.team3219.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team3219.robot.subsystems.PowerManagment;
 import org.usfirst.frc.team3219.robot.subsystems.Sensors;
@@ -53,6 +54,7 @@ public class Robot extends TimedRobot {
 	public static Shooter shooter;
 	public static PowerManagment powerManagment;
 	public static Sensors sensors;
+	public static Climber climber;
 	public static boolean allianceSwitch;
 	public static boolean scale;
 	public static boolean opposingSwitch;
@@ -80,6 +82,11 @@ public class Robot extends TimedRobot {
 		
 		sensors = new Sensors();
 		sensors.init();
+		
+		
+		climber = new Climber();
+		climber.init();
+		
 		
 		//SmartDashboard.putString("DelayStartAutoCenter", " ");
 		
